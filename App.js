@@ -4,16 +4,32 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 import HomeScreen from './src/screens/HomeScreen'
 import ProfileScreen from './src/screens/ProfileScreen'
+import HomeDetailScreen from './src/screens/HomeDetailScreen'
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
+      <Stack.Navigator
+        initialRouteName='Home'
+        screenOptions={{
+          headerStyle: { backgroundColor: 'tomato' },
+          headerBackTitle: '返回',
+          headerTintColor: 'white'
+        }}
+      >
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="HomeDetailScreen" component={HomeDetailScreen} options={{ title: 'My Detail' }} />
+      </Stack.Navigator>
+
+      {/* <Tab.Navigator
         initialRouteName='Profile'
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color, focused }) => {
@@ -37,7 +53,7 @@ export default function App() {
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
-      </Tab.Navigator>
+      </Tab.Navigator> */}
     </NavigationContainer >
   );
 }

@@ -2,13 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default function HomeScreen(props) {
+export default function HomeDetailScreen(props) {
     return (
         <View style={styles.container}>
-            <Text>HomeScreen</Text>
+            <Text>HomeDetailScreen</Text>
             <Button
-                title='Go to Details'
-                onPress={() => props.navigation.push('HomeDetailScreen')}
+                title='go back to Home'
+                onPress={() => props.navigation.pop()}
             />
             <StatusBar style="auto" />
         </View>
