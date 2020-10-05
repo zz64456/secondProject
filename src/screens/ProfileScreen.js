@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
-export default function ProfileScreen() {
+export default function ProfileScreen(props) {
     return (
         <View style={styles.container}>
-            <Text>ProfileScreen</Text>
+            <Text>Profile Screen</Text>
+            <Button
+                title='Go to Profile Detail'
+                onPress={() => props.navigation.push('ProfileDetail')}
+            />
             <StatusBar style="auto" />
         </View>
     );

@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 export default function HomeDetailScreen(props) {
     return (
         <View style={styles.container}>
-            <Text>HomeDetailScreen</Text>
+            <Text>HomeDetail</Text>
             <Button
                 title='go back to Home'
                 onPress={() => props.navigation.pop()}

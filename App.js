@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import HomeScreen from './src/screens/HomeScreen'
 import ProfileScreen from './src/screens/ProfileScreen'
 import HomeDetailScreen from './src/screens/HomeDetailScreen'
+import ProfileDetailScreen from './src/screens/ProfileDetailScreen'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -15,9 +16,42 @@ const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 export default function App() {
+
+  function HomeStack() {
+    return (
+      <Stack.Navigator
+        initialRouteName='Home'
+        screenOptions={{
+          headerStyle: { backgroundColor: 'tomato' },
+          headerBackTitle: '返回Home',
+          headerTintColor: 'white'
+        }}
+      >
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="HomeDetail" component={HomeDetailScreen} options={{ title: 'Home Detail' }} />
+      </Stack.Navigator>
+    )
+  }
+
+  function ProfileStack() {
+    return (
+      <Stack.Navigator
+        initialRouteName='Profile'
+        screenOptions={{
+          headerStyle: { backgroundColor: 'tomato' },
+          headerBackTitle: '返回Profile',
+          headerTintColor: 'white'
+        }}
+      >
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="ProfileDetail" component={ProfileDetailScreen} options={{ title: 'Profile Detail' }} />
+      </Stack.Navigator>
+    )
+  }
+
   return (
     <NavigationContainer>
-      <Stack.Navigator
+      {/* <Stack.Navigator
         initialRouteName='Home'
         screenOptions={{
           headerStyle: { backgroundColor: 'tomato' },
@@ -27,10 +61,10 @@ export default function App() {
       >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="HomeDetailScreen" component={HomeDetailScreen} options={{ title: 'My Detail' }} />
-      </Stack.Navigator>
+      </Stack.Navigator> */}
 
-      {/* <Tab.Navigator
-        initialRouteName='Profile'
+      <Tab.Navigator
+        initialRouteName='Home'
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color, focused }) => {
             let iconName
@@ -51,9 +85,10 @@ export default function App() {
           inactiveTintColor: 'gray'
         }}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-      </Tab.Navigator> */}
+        <Tab.Screen name="Home" component={HomeStack} />
+        <Tab.Screen name="Profile" component={ProfileStack} />
+
+      </Tab.Navigator>
     </NavigationContainer >
   );
 }
