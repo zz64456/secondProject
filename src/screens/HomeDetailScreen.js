@@ -10,15 +10,15 @@ export default function HomeDetailScreen(props) {
 
     return (
         <View style={styles.container}>
-            <Text>HomeDetail</Text>
-            <Button
+            {/* <Text>設定名稱</Text> */}
+            {/* <Button
                 title='go back to Home'
                 onPress={() => props.navigation.pop()}
-            />
-            <Text>{name}</Text>
+            /> */}
+            {/* <Text style={{ padding: 10, fontSize: 25 }}>{name}</Text> */}
             <Button
-                title='Change Food'
-                onPress={() => F('Banana')}
+                title='更改名稱'
+                onPress={() => F('Rose')}
             />
 
 

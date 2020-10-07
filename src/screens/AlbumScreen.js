@@ -2,21 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default function HomeScreen(props) {
-
-    const [food, setFood] = useState('Jack')
-
-    const changeFood = (NewFood) => {
-        setFood(NewFood)
-    }
+export default function AlbumScreen(props) {
 
     return (
         <View style={styles.container}>
-            {/* <Text style={{ fontSize: 25, padding: 10 }}>首頁</Text> */}
-            <Text style={{ fontSize: 25, padding: 10 }}>Hi~ {food}</Text>
+            {/* <Text style={{ fontSize: 25, padding: 10 }}>相簿</Text> */}
             <Button
-                title='個人設定'
-                onPress={() => props.navigation.push('HomeDetail', { name: '', funcA: (arg) => changeFood(arg) })}
+                title='看照片'
+                onPress={() => props.navigation.push('Photo')}
             />
             <StatusBar style="auto" />
         </View>
