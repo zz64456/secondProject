@@ -8,6 +8,7 @@ import HomeDetailScreen from './src/screens/HomeDetailScreen'
 import ProfileDetailScreen from './src/screens/ProfileDetailScreen'
 import AlbumScreen from './src/screens/AlbumScreen'
 import PhotoScreen from './src/screens/PhotoScreen'
+import NoticeDetailScreen from './src/screens/NoticeDetailScreen'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -32,7 +33,8 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="HomeDetail" component={HomeDetailScreen} options={{ title: 'Home Detail' }} />
+        {/* <Stack.Screen name="HomeDetail" component={HomeDetailScreen} options={{ title: 'Home Detail' }} /> */}
+        <Stack.Screen name="NoticeDetail" component={NoticeDetailScreen} />
       </Stack.Navigator>
     )
   }
