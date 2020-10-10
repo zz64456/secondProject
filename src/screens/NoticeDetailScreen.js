@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 
 export default function NoticeDetailScreen(props) {
 
@@ -9,7 +9,7 @@ export default function NoticeDetailScreen(props) {
     return (
         <View style={styles.container}>
             <Text>{passProps.note}</Text>
-
+            <Image source={{ uri: passProps.pic }} style={styles.picture} />
             <StatusBar style="auto" />
         </View>
     );
@@ -22,4 +22,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    picture: {
+        width: 300,
+        height: 240,
+        resizeMode: 'contain',
+        marginTop: 15
+    }
 });
