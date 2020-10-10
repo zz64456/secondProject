@@ -45,16 +45,17 @@ export default function ProfileScreen(props) {
 
     const renderFile = (items) => {
         return (
-            <TouchableOpacity
-                onPress={() => showProfileDetail(items)}>
-                <View style={styles.MainView}>
-                    <View style={styles.listView}>
-                        <Text style={{ fontSize: 30 }}>{items.title}</Text>
+            <View style={{ backgroundColor: 'white', height: 110, justifyContent: 'center', alignItems: 'center' }}>
+                <TouchableOpacity
+                    onPress={() => showProfileDetail(items)}>
+                    <View style={styles.MainView}>
+                        <View style={styles.listView}>
+                            <Text style={{ fontSize: 30 }}>{items.title}</Text>
+                        </View>
+                        <View style={styles.bottomLine}></View>
                     </View>
-                    <View style={styles.bottomLine}></View>
-                </View>
-            </TouchableOpacity>
-
+                </TouchableOpacity>
+            </View>
         )
     }
 
@@ -71,8 +72,9 @@ export default function ProfileScreen(props) {
 
 const styles = StyleSheet.create({
     MainView: {
-        marginTop: 20,
-        alignSelf: 'center',
+        // marginTop: 20,
+        // justifyContent: 'center',
+        // alignSelf: 'center',
         width: 300,
         backgroundColor: 'tan',
     },
