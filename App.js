@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 import HomeScreen from './src/screens/HomeScreen'
 import NoticeDetailScreen from './src/screens/NoticeDetailScreen'
+import ProfileDetailScreen from './src/screens/ProfileDetailScreen'
+import ProfileScreen from './src/screens/ProfileScreen'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -27,8 +29,24 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Home" component={HomeScreen} />
-        {/* <Stack.Screen name="HomeDetail" component={HomeDetailScreen} options={{ title: 'Home Detail' }} /> */}
         <Stack.Screen name="NoticeDetail" component={NoticeDetailScreen} />
+      </Stack.Navigator>
+    )
+  }
+
+  function ProfileStack() {
+    return (
+      <Stack.Navigator
+        initialRouteName='Profile'
+        screenOptions={{
+          headerTitle: '個人檔案',
+          headerStyle: { backgroundColor: 'teal' },
+          headerBackTitle: '返回',
+          headerTintColor: 'white'
+        }}
+      >
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="ProfileDetail" component={ProfileDetailScreen} />
       </Stack.Navigator>
     )
   }
@@ -39,24 +57,26 @@ export default function App() {
       <Tab.Navigator
         initialRouteName='Home'
         screenOptions={({ route }) => ({
-          tabBarIcon: ({ color, focused }) => {
+          tabBarIcon: ({ color }) => {
             let iconName
-            if (route.name == 'Home') {
+            if (route.name == '首頁') {
               iconName = 'ios-home'
-              return <Ionicons name={iconName} size={25} color={color} />
-            } else if (route.name == 'Album') {
-              iconName = 'ios-images'
-              return <Ionicons name={iconName} size={25} color={color} />
             }
-
+            else if (route.name == '個人檔案') {
+              iconName = 'ios-person'
+            }
+            return <Ionicons name={iconName} size={25} color={color} />
           }
+
         })}
         tabBarOptions={{
           activeTintColor: 'tomato',
-          inactiveTintColor: 'gray'
+          inactiveTintColor: 'gray',
+          labelPosition: 'beside-icon'
         }}
       >
-        <Tab.Screen name="Home" component={HomeStack} />
+        <Tab.Screen name="首頁" component={HomeStack} />
+        <Tab.Screen name="個人檔案" component={ProfileStack} />
 
       </Tab.Navigator>
 

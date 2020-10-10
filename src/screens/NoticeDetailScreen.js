@@ -8,7 +8,7 @@ export default function NoticeDetailScreen(props) {
 
     return (
         <View style={styles.container}>
-            <Text>{passProps.note}</Text>
+            <Text style={{ fontSize: 18 }}>{passProps.note}</Text>
             <Image source={{ uri: passProps.pic }} style={styles.picture} />
             <StatusBar style="auto" />
         </View>
